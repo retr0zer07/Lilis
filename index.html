@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=36">
+  <link rel="stylesheet" href="styles.css?v=40">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -599,7 +599,33 @@
         <strong class="cart-total-value">$0 MXN</strong>
       </div>
       <button class="btn checkout-btn" type="button" disabled>Finalizar compra</button>
-      <p class="checkout-note" role="status">La pasarela se conectará desde un endpoint seguro del backend.</p>
+      <p class="checkout-note" role="status">Completa tus datos para confirmar el pedido.</p>
+      <form class="checkout-details" id="checkout-details" hidden>
+        <h3>Completa tu pedido</h3>
+        <div class="checkout-grid">
+          <label>Nombre completo<input name="name" type="text" autocomplete="name" required></label>
+          <label>Correo electrónico<input name="email" type="email" autocomplete="email" required></label>
+          <label>Teléfono<input name="phone" type="tel" autocomplete="tel" required></label>
+          <label>Ciudad<input name="city" type="text" autocomplete="address-level2" required></label>
+          <label class="checkout-full">Dirección de entrega<input name="address" type="text" autocomplete="street-address" required></label>
+          <label>Código postal<input name="postalCode" type="text" inputmode="numeric" autocomplete="postal-code" required></label>
+          <label>Entrega
+            <select name="delivery" required>
+              <option value="">Selecciona</option>
+              <option value="delivery">A domicilio</option>
+              <option value="pickup">Punto de entrega</option>
+            </select>
+          </label>
+          <fieldset class="checkout-payment checkout-full">
+            <legend>Método de pago</legend>
+            <label><input type="radio" name="payment" value="cash" required> Efectivo</label>
+            <label><input type="radio" name="payment" value="transfer"> Transferencia</label>
+          </fieldset>
+          <label class="checkout-full">Notas del pedido<input name="notes" type="text" placeholder="Referencias o indicaciones"></label>
+          <label class="checkout-consent checkout-full"><input name="consent" type="checkbox" required><span>Acepto que mis datos se utilicen para procesar este pedido y coordinar la entrega.</span></label>
+        </div>
+        <button class="btn checkout-submit" type="submit">Confirmar pedido</button>
+      </form>
     </div>
   </aside>
 
@@ -690,6 +716,6 @@
     </div>
   </section>
 
-  <script src="script.js?v=9"></script>
+  <script src="script.js?v=14"></script>
 </body>
 </html>

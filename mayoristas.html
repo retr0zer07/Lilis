@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compras mayoristas | Lilis</title>
+  <meta name="description" content="Registra tu negocio para conocer las opciones mayoristas de Lilis y recibir atención directa para tu próximo pedido.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#07120c">
+  <link rel="canonical" href="https://retr0zer07.github.io/Lilis/mayoristas.html">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="styles.css?v=31">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Principal">
+      <a href="index.html" class="brand" aria-label="Lilis inicio"><img src="assets/logo.png" alt="Lilis"></a>
+      <a class="legal-back" href="index.html">Volver a Lilis</a>
+    </nav>
+  </header>
+
+  <main class="wholesale-page">
+    <div class="container wholesale-layout">
+      <section class="wholesale-intro" aria-labelledby="wholesale-title">
+        <p class="eyebrow">LILIS PARA TU NEGOCIO</p>
+        <h1>Crezcamos tu próxima mesa.</h1>
+        <p>Cuéntanos sobre tu negocio y te contactaremos directamente para crear una propuesta mayorista a tu medida.</p>
+        <ul class="wholesale-points">
+          <li><strong>Condiciones a tu medida</strong>Volúmenes, sabores y frecuencia según tu operación.</li>
+          <li><strong>Atención directa</strong>Una persona de Lilis dará seguimiento a tu solicitud.</li>
+          <li><strong>Propuestas para eventos</strong>Opciones para cafeterías, oficinas, hoteles y celebraciones.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="wholesale-title">
+        <form class="lead-form" id="wholesale-form" novalidate>
+          <h2 id="wholesale-title">Solicita información mayorista</h2>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="business-name">Nombre del negocio</label>
+              <input id="business-name" name="businessName" type="text" autocomplete="organization" required>
+            </div>
+            <div class="form-field">
+              <label for="contact-name">Persona de contacto</label>
+              <input id="contact-name" name="contactName" type="text" autocomplete="name" required>
+            </div>
+            <div class="form-field">
+              <label for="business-email">Correo electrónico</label>
+              <input id="business-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="form-field">
+              <label for="business-phone">Teléfono / WhatsApp</label>
+              <input id="business-phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+            <div class="form-field">
+              <label for="business-city">Ciudad y estado</label>
+              <input id="business-city" name="location" type="text" autocomplete="address-level2" required>
+            </div>
+            <div class="form-field">
+              <label for="business-type">Tipo de negocio</label>
+              <select id="business-type" name="businessType" required>
+                <option value="">Selecciona una opción</option>
+                <option value="cafeteria">Cafetería / restaurante</option>
+                <option value="hotel">Hotel / venue</option>
+                <option value="empresa">Empresa / oficina</option>
+                <option value="eventos">Eventos / catering</option>
+                <option value="tienda">Tienda / reventa</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="monthly-volume">Volumen estimado mensual</label>
+              <select id="monthly-volume" name="monthlyVolume" required>
+                <option value="">Selecciona una opción</option>
+                <option value="20-50">20 a 50 latas</option>
+                <option value="51-100">51 a 100 latas</option>
+                <option value="101-250">101 a 250 latas</option>
+                <option value="250-plus">Más de 250 latas</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="order-frequency">Frecuencia de pedido</label>
+              <select id="order-frequency" name="orderFrequency" required>
+                <option value="">Selecciona una opción</option>
+                <option value="weekly">Semanal</option>
+                <option value="biweekly">Cada quince días</option>
+                <option value="monthly">Mensual</option>
+                <option value="eventual">Por evento</option>
+              </select>
+            </div>
+            <div class="form-field full-width">
+              <label for="business-message">Cuéntanos qué necesitas</label>
+              <textarea id="business-message" name="message" placeholder="Sabores, fechas, presentación o cualquier detalle importante."></textarea>
+            </div>
+            <div class="consent-field">
+              <label for="contact-consent">
+                <input id="contact-consent" name="contactConsent" type="checkbox" required>
+                <span>Acepto que Lilis se comunique conmigo para dar seguimiento a esta solicitud, de acuerdo con la <a href="privacidad.html">Política de privacidad</a>.</span>
+              </label>
+            </div>
+            <p class="form-status" id="wholesale-status" role="status" aria-live="polite"></p>
+            <button class="btn" type="submit">Solicitar contacto</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script src="mayoristas.js?v=1"></script>
+</body>
+</html>

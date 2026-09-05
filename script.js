@@ -12,6 +12,7 @@ const cartTotalValue = document.querySelector(".cart-total-value");
 const cartCountElements = document.querySelectorAll(".cart-count");
 const checkoutButton = document.querySelector(".checkout-btn");
 const checkoutNote = document.querySelector(".checkout-note");
+const checkoutDetails = document.querySelector("#checkout-details");
 const helpToggle = document.querySelector(".help-toggle");
 const helpPanel = document.querySelector(".help-panel");
 const helpClose = document.querySelector(".help-close");
@@ -30,7 +31,6 @@ const formatter = new Intl.NumberFormat("es-MX", {
   currency: "MXN",
   maximumFractionDigits: 0,
 });
-const checkoutEndpoint = "";
 let cart = [];
 
 try {
@@ -437,37 +437,29 @@ cartItemsContainer?.addEventListener("click", (event) => {
   updateCartItem(id, action === "increase" ? 1 : -1);
 });
 
-checkoutButton?.addEventListener("click", async () => {
+checkoutButton?.addEventListener("click", () => {
   if (cart.length === 0) {
     return;
   }
 
-  if (!checkoutEndpoint) {
-    checkoutNote.textContent = "Carrito listo. Falta conectar Stripe, Mercado Pago u otra pasarela desde backend para cobrar de forma segura.";
+  checkoutDetails?.removeAttribute("hidden");
+  checkoutDetails?.querySelector("input")?.focus();
+  checkoutNote.textContent = "Revisa tus datos y confirma el pedido.";
+});
+
+checkoutDetails?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (!checkoutDetails.checkValidity()) {
+    checkoutDetails.reportValidity();
     return;
   }
 
-  checkoutButton.disabled = true;
-  checkoutNote.textContent = "Creando checkout seguro...";
-
-  try {
-    const response = await fetch(checkoutEndpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: cart }),
-    });
-    const data = await response.json();
-
-    if (data.url) {
-      window.location.href = data.url;
-      return;
-    }
-
-    throw new Error("Checkout URL missing");
-  } catch {
-    checkoutButton.disabled = false;
-    checkoutNote.textContent = "No se pudo iniciar la pasarela. Revisa la configuración del backend de pagos.";
-  }
+  const details = Object.fromEntries(new FormData(checkoutDetails).entries());
+  localStorage.setItem("lilis-checkout-details", JSON.stringify(details));
+  checkoutNote.textContent = "Pedido confirmado. Te contactaremos para coordinar la entrega y el pago.";
+  checkoutDetails.reset();
+  checkoutDetails.setAttribute("hidden", "");
 });
 
 const hero = document.querySelector(".hero");

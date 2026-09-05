@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://retr0zer07.github.io/Lilis/sitemap.xml
